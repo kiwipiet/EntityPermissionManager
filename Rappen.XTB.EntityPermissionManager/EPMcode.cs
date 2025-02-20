@@ -421,6 +421,7 @@ namespace Rappen.XTB.EPM
             var query = new QueryExpression("adx_entitypermission");
             query.ColumnSet.AddColumns("adx_entityname", "adx_entitylogicalname", "adx_scope", "adx_parententitypermission", "adx_contactrelationship", "adx_accountrelationship", "adx_parentrelationship", "adx_read", "adx_create", "adx_write", "adx_delete", "adx_append", "adx_appendto", "adx_websiteid");
             query.Criteria.AddCondition("adx_websiteid", ConditionOperator.Equal, cmbWebsite.SelectedRecord.Id);
+            query.Criteria.AddCondition("statecode", ConditionOperator.Equal, 0);
 
             var webroleid = Guid.Empty; // Prep for filtering/grouping by webrole
             if (!webroleid.Equals(Guid.Empty))
